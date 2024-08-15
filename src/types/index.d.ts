@@ -13,3 +13,5 @@ declare type LanguageSelectProps = {
   setLanguage?: React.Dispatch<React.SetStateAction<string>>;
   className?: string
 };
+
+declare module "prismjs/components/prism-core";

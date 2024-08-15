@@ -43,8 +43,8 @@ type InsertSnippetParams = {
   // } | null;
   title: string;
   // slug: string | null;
-  tags: string | null;
-  description: string | null;
+  tags: string;
+  description: string;
   codeLanguage: string;
   codeValue: string;
   isPublic: boolean;
@@ -59,8 +59,8 @@ export type UpdateSnippetParams = {
   //     clerkId: string;
   // } | null;
   title?: string;
-  tags?: string | null;
-  description?: string | null;
+  tags?: string;
+  description?: string;
   codeLanguage?: string;
   codeValue?: string;
   isPublic?: boolean;

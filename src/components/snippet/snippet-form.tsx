@@ -73,7 +73,7 @@ const SnippetForm = ({
       title,
       description,
       isPublic,
-      tags: null,
+      tags: "",
       codeLanguage: language,
       codeValue: code,
       username: user.user?.username as string,
@@ -86,7 +86,7 @@ const SnippetForm = ({
       title,
       description,
       isPublic,
-      tags: null,
+      tags: "",
       codeLanguage: language,
       codeValue: code,
     });

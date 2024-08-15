@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import SnippetForm from "@/components/snippet/snippet-form";
 import { currentUser } from "@clerk/nextjs/server";

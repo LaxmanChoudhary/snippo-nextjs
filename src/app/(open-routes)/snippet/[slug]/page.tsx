@@ -7,7 +7,7 @@ const SnippetPage = async ({ params }: { params: { slug: string } }) => {
   const snippet = data[0];
 
   return (
-    <div className="grid gap-2 xl:h-[calc(100lvh-32px)]">
+    <div className="grid gap-2">
       <div>
         <p className="text font-semibold">{snippet.title}</p>
         <p className="text-sm text-muted-foreground">{snippet.description}</p>

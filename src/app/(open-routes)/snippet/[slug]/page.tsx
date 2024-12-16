@@ -8,7 +8,7 @@ const SnippetPage = async ({ params }: { params: { slug: string } }) => {
   const snippet = data[0];
 
   return (
-    <Container className="space-y-4">
+    <Container className="mt-4 space-y-4">
       <div>
         <p className="text font-semibold">{snippet.title}</p>
         <p className="text-sm text-muted-foreground">{snippet.description}</p>

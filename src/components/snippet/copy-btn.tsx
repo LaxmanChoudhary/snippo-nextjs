@@ -6,7 +6,7 @@ import React, { useState } from "react";
 export const CopyButton = ({
   content,
   className,
-  size=16,
+  size = 16,
 }: {
   content: string;
   className?: string;
@@ -26,20 +26,13 @@ export const CopyButton = ({
   return (
     <div
       className={cn(
-        "bg-white flex items-center justify-center h-7 w-7 border rounded p-1 hover:bg-primary-foreground",
+        "bg-white flex items-center justify-center h-7 w-7 border rounded p-1 hover:bg-primary-foreground cursor-pointer",
+        copied ? "bg-green-400 hover:bg-green-400" : "",
         className
       )}
     >
-      <button
-        onClick={copyHandler}
-        disabled={copied}
-        title={copied ? "copied!" : "copy"}
-      >
-        {copied ? (
-          <ClipboardCheck size={size} />
-        ) : (
-          <ClipboardCopy size={size} />
-        )}
+      <button onClick={copyHandler} disabled={copied} title={copied ? "copied!" : "copy"}>
+        {copied ? <ClipboardCheck size={size} /> : <ClipboardCopy size={size} />}
       </button>
     </div>
   );

@@ -226,14 +226,14 @@ const SnippetCard = ({ snippet }: { snippet: Snippet }) => {
   );
 };
 
-const SnippetsContainer = ({ data }: { data: Snippet[] }) => {
-  return (
-    <div className="grid gap-2 grid-cols-1 lg:grid-cols-2">
-      {data.map((snip) => (
-        <SnippetCard key={snip.id} snippet={snip} />
-      ))}
-    </div>
-  );
-};
+// const SnippetsContainer = ({ data }: { data: Snippet[] }) => {
+//   return (
+//     <div className="grid gap-2 grid-cols-1 lg:grid-cols-2">
+//       {data.map((snip) => (
+//         <SnippetCard key={snip.id} snippet={snip} />
+//       ))}
+//     </div>
+//   );
+// };
 
-export default SnippetsContainer;
+// export default SnippetsContainer;

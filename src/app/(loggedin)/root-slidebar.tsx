@@ -1,15 +1,5 @@
 import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
   Sidebar,
   SidebarContent,
@@ -22,7 +12,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { BookMarked, Code2, LayoutDashboard, PlusCircle, Settings, Trash2, User } from "lucide-react";
+import { Code2, LayoutDashboard, PlusCircle, Settings, Trash2, User } from "lucide-react";
 import Link from "next/link";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 
@@ -53,14 +43,6 @@ export default function RootSlideBar({ children }: { children: React.ReactNode }
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-              {/* <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link href="/collections">
-                    <BookMarked className="mr-2 h-4 w-4" />
-                    Collections
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem> */}
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <Link href="/trash">
@@ -70,16 +52,6 @@ export default function RootSlideBar({ children }: { children: React.ReactNode }
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
-            {/* <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link href="#settings">
-                    <Settings className="mr-2 h-4 w-4" />
-                    Profile Settings
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu> */}
           </SidebarContent>
           <SidebarRail />
         </Sidebar>

@@ -27,7 +27,7 @@ export const CopyButton = ({
     <div
       className={cn(
         "bg-white flex items-center justify-center h-7 w-7 border rounded p-1 hover:bg-primary-foreground cursor-pointer",
-        copied ? "bg-green-400 hover:bg-green-400" : "",
+        copied ? "bg-green-200 hover:bg-green-200" : "",
         className
       )}
     >

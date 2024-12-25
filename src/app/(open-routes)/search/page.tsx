@@ -3,7 +3,8 @@ import Container from "@/components/ui/container";
 import { getSnippets } from "@/lib/actions/snippet.actions";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import ReadonlyCodeview from "@/components/readonly_codeview";
-import FilterPanel from "./filters";
+// import FilterPanel from "./filters";
+import { Search } from "lucide-react";
 
 export default async function SearchPage({
   searchParams,
@@ -15,6 +16,12 @@ export default async function SearchPage({
 
   return (
     <Container className="mt-8">
+      {snippets.length === 0 && (
+        <div className="flex flex-col gap-4 items-center justify-center h-[200px] w-full text-neutral-700">
+          <Search size={48} />
+          <p className="text-sm">No snippets to match your search.</p>
+        </div>
+      )}
       <div className="grid gap-4 md:grid-cols-2">
         {snippets.map((snippet, i) => (
           <Card key={i}>
@@ -32,10 +39,6 @@ export default async function SearchPage({
             </CardContent>
             <CardFooter className="flex justify-between">
               <span className="text-sm text-muted-foreground">{snippet.codeLanguage}</span>
-              {/* <div className="flex items-center">
-                <Star className="h-4 w-4 text-yellow-400 mr-1" />
-                <span className="text-sm font-medium">{Math.floor(Math.random() * 100) + 1}</span>
-              </div> */}
             </CardFooter>
           </Card>
         ))}

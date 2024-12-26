@@ -10,10 +10,7 @@ import CodeView from "./code-view";
 import SaveCodeButton from "../main/save-code-btn";
 import { cn } from "@/lib/utils";
 import { useUser } from "@clerk/nextjs";
-import {
-  inserSnippetAction,
-  updateSnippetAction,
-} from "@/lib/actions/snippet.actions";
+import { inserSnippetAction, updateSnippetAction } from "@/lib/actions/snippet.actions";
 import { useModal } from "@/providers/modal-provider";
 import { useRouter } from "next/navigation";
 
@@ -54,8 +51,8 @@ const SnippetForm = ({
   formSavehandler,
 }: SnippetFormProps) => {
   const user = useUser();
-  const router = useRouter()
-  const closeModal = useModal(state => state.closeModal)
+  const router = useRouter();
+  const closeModal = useModal((state) => state.closeModal);
 
   const [saving, setSaving] = useState(false);
   const [title, setTitle] = useState(formValues.title);
@@ -78,7 +75,7 @@ const SnippetForm = ({
       codeValue: code,
       username: user.user?.username as string,
     });
-    router.push("/browse")
+    router.push("/dashboard");
   };
 
   const updateData = async () => {
@@ -90,19 +87,21 @@ const SnippetForm = ({
       codeLanguage: language,
       codeValue: code,
     });
-    closeModal()
+    closeModal();
   };
 
   return (
     <>
-      <Tabs
-        defaultValue="details"
-        className={cn("flex flex-col h-full w-full", className)}
-      >
+      <Tabs defaultValue="code" className={cn("flex flex-col h-full w-full", className)}>
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="details">Details</TabsTrigger>
           <TabsTrigger value="code">Code</TabsTrigger>
+          <TabsTrigger value="details">Details</TabsTrigger>
         </TabsList>
+        <TabsContent value="code" className={tabContentClassName}>
+          <div className="flex flex-col w-full h-[calc(100%-50px)]">
+            <CodeView code={code} language={language} setCode={setCode} setLanguage={setLanguage} editable />
+          </div>
+        </TabsContent>
         <TabsContent value="details" className={tabContentClassName}>
           <div className="space-y-4">
             <div>
@@ -125,11 +124,7 @@ const SnippetForm = ({
               />
             </div>
             <div className="items-top flex space-x-2">
-              <Checkbox
-                id="public"
-                checked={isPublic}
-                onCheckedChange={(checked) => setIsPublic(checked as boolean)}
-              />
+              <Checkbox id="public" checked={isPublic} onCheckedChange={(checked) => setIsPublic(checked as boolean)} />
               <div className="grid leading-none">
                 <label
                   htmlFor="public"
@@ -137,26 +132,13 @@ const SnippetForm = ({
                 >
                   Public
                 </label>
-                <p className="text-sm text-muted-foreground">
-                  Let everyone see your contribution.
-                </p>
+                <p className="text-sm text-muted-foreground">Let everyone see your contribution.</p>
               </div>
             </div>
             <SaveCodeButton
-              btnText={editForm ? "update": "save"}
+              btnText={editForm ? "update" : "save"}
               className="mt-2 justify-self-end"
               submitHandler={editForm ? updateData : insertData}
-            />
-          </div>
-        </TabsContent>
-        <TabsContent value="code" className={tabContentClassName}>
-          <div className="flex flex-col w-full h-[calc(100%-50px)]">
-            <CodeView
-              code={code}
-              language={language}
-              setCode={setCode}
-              setLanguage={setLanguage}
-              editable
             />
           </div>
         </TabsContent>

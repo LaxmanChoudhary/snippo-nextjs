@@ -55,7 +55,7 @@ export default function RootSlideBar({ children }: { children: React.ReactNode }
           </SidebarContent>
           <SidebarRail />
         </Sidebar>
-        <SidebarInset>
+        <SidebarInset className="w-full">
           <header className="flex items-center justify-between border-b px-6 py-4">
             <div className="flex items-center">
               <SidebarTrigger className="mr-4" />
@@ -75,7 +75,9 @@ export default function RootSlideBar({ children }: { children: React.ReactNode }
               </div>
             </SignedIn>
           </header>
-          <main className="flex-1 overflow-y-auto p-6">{children}</main>
+          <main className="flex-1 overflow-y-auto p-6">
+            {children}
+          </main>
         </SidebarInset>
       </div>
     </SidebarProvider>

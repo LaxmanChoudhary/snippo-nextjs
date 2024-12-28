@@ -78,7 +78,7 @@ export default async function SnippetContainer({
   }
 
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
+    <div className="grid justify-center gap-4 lg:grid-cols-2">
       {snippets.map((snip) => (
         <SnippetCard key={snip.id} snippet={snip as any} />
       ))}

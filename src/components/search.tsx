@@ -38,7 +38,7 @@ export default function Search({ showSearchBtn = false, showClearBtn = false }) 
         placeholder="eg. debounce hook in react"
         autoComplete="off"
         defaultValue={searchParams?.get("q") || ""}
-        className="text-md w-full rounded-lg border bg-white px-4 py-2 text-black placeholder:text-neutral-500 md:text-sm dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
+        className="text-md w-full max-w-[500px] border border-neutral-800 bg-white px-4 py-2 text-black placeholder:text-neutral-500 md:text-sm dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
       />
       {showSearchBtn && (
         <Button type="submit">

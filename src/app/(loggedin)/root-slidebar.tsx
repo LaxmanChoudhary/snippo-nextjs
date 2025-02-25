@@ -15,6 +15,7 @@ import {
 import { Code2, LayoutDashboard, PlusCircle, Settings, Trash2, User } from "lucide-react";
 import Link from "next/link";
 import { SignedIn, UserButton } from "@clerk/nextjs";
+import { AppTitle } from "@/lib/constants";
 
 export default function RootSlideBar({ children }: { children: React.ReactNode }) {
   return (
@@ -27,7 +28,7 @@ export default function RootSlideBar({ children }: { children: React.ReactNode }
                 <SidebarMenuButton asChild size="lg" className="w-full justify-start">
                   <Link href={"/dashboard"}>
                     <Code2 className="mr-2 h-5 w-5" />
-                    <span className="font-semibold">SnippetShare</span>
+                    <span className="font-semibold">{AppTitle}</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>

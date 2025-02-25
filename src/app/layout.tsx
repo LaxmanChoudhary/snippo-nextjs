@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fira_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
 import GlobalModal, { ModalProvider } from "@/providers/modal-provider";
 import "./globals.css";
+import { AppTitle } from "@/lib/constants";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const fira = Fira_Sans({ weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Snippo - the code sharing app",
-  description: "Share. Discover.",
+  title: `${AppTitle} - the code sharing app`,
+  description: "Share, discover code",
 };
 
 export default function RootLayout({
@@ -20,9 +23,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={fira.className}>
           <ModalProvider>
+            <Header />
             {children}
+            <Footer />
             <Toaster richColors theme="light" />
             <GlobalModal />
           </ModalProvider>

@@ -848,9 +848,9 @@ export function useInfiniteScroll({
   },
 ];
 
-// export const getPublicSnippets = async () => {
-//   return TEST_DATA;
-// };
+export const getPublicSnippets = async () => {
+  return TEST_DATA;
+};
 
 export const getSnippets = async ({
   forUser,

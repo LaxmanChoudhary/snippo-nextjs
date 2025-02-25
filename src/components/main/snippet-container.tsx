@@ -4,6 +4,8 @@ import { type Snippet } from "@/db/schema";
 import React from "react";
 import CodeView from "@/components/snippet/code-view";
 import Link from "next/link";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+
 // import { Button } from "@/components/ui/button";
 // import { DeleteIcon, EditIcon, RecycleIcon, TrashIcon } from "lucide-react";
 // import { useUser } from "@clerk/nextjs";
@@ -20,7 +22,8 @@ import Link from "next/link";
 //   DropdownMenuTrigger,
 // } from "@/components/ui/dropdown-menu";
 // import { MoreVertical } from "lucide-react";
-import { getSnippets } from "@/lib/actions/snippet.actions";
+import { getPublicSnippets, getSnippets } from "@/lib/actions/snippet.actions";
+import ReadonlyCodeview from "../readonly_codeview";
 // import { currentUser } from "@clerk/nextjs/server";
 
 export const SnippetCard = ({ snippet }: { snippet: Snippet }) => {
@@ -30,24 +33,19 @@ export const SnippetCard = ({ snippet }: { snippet: Snippet }) => {
   // const { actionLoading, deleteSnippet, permanentDeleteSnippet, restoreSnippet } = useSnippetActions();
 
   return (
-    <div className="relative flex border shadow-sm rounded justify-self-center w-full flex-col p-2">
-      <div>
-        <Link href={`/snippet/${snippet.slug}`} className="hover:underline">
-          {snippet.title}
-        </Link>
-        <p className="text-muted-foreground text-xs">{snippet.description}</p>
-      </div>
-      {snippet.tags !== "" && (
-        <ul className="flex gap-2 py-1">
-          {snippet.tags?.split(";").map((tag) => (
-            <li className="text-sm px-2 border rounded" key={tag}>
-              {tag}
-            </li>
-          ))}
-        </ul>
-      )}
-      <CodeView code={snippet.codeValue} language={snippet.codeLanguage} copyCode editorClassName="!text-xs" />
-    </div>
+    <Card className="w-full border-neutral-800 rounded-none">
+      <CardHeader className="p-4">
+        <CardTitle className="text-md">
+          <Link href={`/snippet/${snippet.slug}`} className="hover:underline">
+            {snippet.title}
+          </Link>
+        </CardTitle>
+        <CardDescription>{snippet.description}</CardDescription>
+      </CardHeader>
+      <CardContent className="p-0">
+        <ReadonlyCodeview className="h-[250px]" code={snippet.codeValue} language={snippet.codeLanguage} copyCode />
+      </CardContent>
+    </Card>
   );
 };
 
@@ -78,7 +76,7 @@ export default async function SnippetContainer({
   }
 
   return (
-    <div className="grid justify-center gap-4 lg:grid-cols-2">
+    <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
       {snippets.map((snip) => (
         <SnippetCard key={snip.id} snippet={snip as any} />
       ))}

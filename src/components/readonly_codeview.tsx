@@ -43,7 +43,7 @@ const ReadonlyCodeview = ({
           fontFamily: "monospace",
           fontSize: 17,
         }}
-        className={cn("rounded min-h-[100px] !text-sm tracking-tight", editorClassName)}
+        className={cn("rounded min-h-[100px] !text-xs tracking-tight", editorClassName)}
         disabled
         preClassName="!whitespace-pre"
         textareaClassName="outline-none"

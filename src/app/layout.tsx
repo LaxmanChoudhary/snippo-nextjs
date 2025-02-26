@@ -25,9 +25,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={fira.className}>
           <ModalProvider>
-            <Header />
             {children}
-            <Footer />
             <Toaster richColors theme="light" />
             <GlobalModal />
           </ModalProvider>

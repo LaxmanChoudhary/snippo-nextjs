@@ -3,6 +3,7 @@ import { getSnippets } from "@/lib/actions/snippet.actions";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import ReadonlyCodeview from "@/components/readonly_codeview";
 import { Search } from "lucide-react";
+import Link from "next/link";
 
 export default async function SearchPage({
   searchParams,
@@ -24,7 +25,11 @@ export default async function SearchPage({
         {snippets.map((snippet, i) => (
           <Card key={i} className="w-full border-neutral-800 rounded-none">
             <CardHeader className="p-4">
-              <CardTitle className="text-md">{snippet.title}</CardTitle>
+              <CardTitle className="text-md">
+                <Link href={`/snippet/${snippet.slug}`} className="hover:underline">
+                  {snippet.title}
+                </Link>
+              </CardTitle>
               <CardDescription>{snippet.description}</CardDescription>
             </CardHeader>
             <CardContent className="p-0">

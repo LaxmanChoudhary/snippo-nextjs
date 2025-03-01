@@ -38,16 +38,16 @@ export default function Search({ showSearchBtn = false, showClearBtn = false }) 
         placeholder="eg. debounce hook in react"
         autoComplete="off"
         defaultValue={searchParams?.get("q") || ""}
-        className="text-md w-full max-w-[500px] border border-neutral-800 bg-white px-4 py-2 text-black placeholder:text-neutral-500 md:text-sm dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
+        className="text-md w-full max-w-[500px] ring-1 ring-inset ring-neutral-300 bg-white px-4 py-2 text-black placeholder:text-neutral-500 md:text-sm dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400 focus-visible:outline-neutral-800 focus-visible:outline-1"
       />
       {showSearchBtn && (
         <Button type="submit">
-          <SearchCode /> Query
+          <SearchCode /><span className="hidden sm:block">Query</span>
         </Button>
       )}
       {showClearBtn && (
         <Button variant={"secondary"} type="reset" onClick={clearHandler}>
-          <SearchX /> Clear
+          <SearchX /><span className="hidden sm:block">Clear</span>
         </Button>
       )}
     </form>
